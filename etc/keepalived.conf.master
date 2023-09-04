@@ -1,0 +1,36 @@
+# ha mimic master
+
+global_defs {
+   router_id horizon 
+}
+
+vrrp_script chk_nginx {
+       script "/root/check_mimic.sh check"
+       interval 5
+       weight -20
+}
+
+vrrp_instance VI_1 {
+    state MASTER  
+    interface eno5
+    virtual_router_id 51 
+    mcast_src_ip 10.10.13.31
+    priority 100 
+    advert_int 1
+    
+    authentication {
+        auth_type PASS
+        auth_pass comleader@123
+    }
+    
+    virtual_ipaddress {
+        10.10.13.30
+    }
+
+    track_script {
+       chk_nginx
+    }
+
+    notify_master "/root/check_mimic.sh notify-master"
+    notify_backup "/root/check_mimic.sh notify-slaver"
+}

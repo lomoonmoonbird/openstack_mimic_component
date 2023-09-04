@@ -1,0 +1,18 @@
+[Unit]
+Description= mimic cloud service %i
+
+[Service]
+Type=forking
+LimitNOFILE=809600
+LimitNPROC=809600
+ExecStart=/usr/local/bin/mimic-cloud start %i
+ExecStop=/bin/kill -9 $MAINPID
+PrivateTmp=true
+Restart=always
+RestartSec=10
+StartLimitInterval=10min
+StartLimitBurst=10
+
+
+[Install]
+WantedBy=multi-user.target

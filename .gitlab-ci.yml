@@ -1,0 +1,50 @@
+stages:
+  - build-rpm
+  - clean-rpm
+  - build-deb
+  - clean-deb
+
+variables:
+  CI_WORK_DIR: /tmp/mcs_mimic_ci/workdir
+
+build_rpm_job:
+  stage: build-rpm  
+  tags:
+    - default-rpm
+  only:
+    - master
+  script:
+    - echo $PackageType
+    - mkdir -p $CI_WORK_DIR
+    - cp -r ./* $CI_WORK_DIR/
+    - bash $CI_WORK_DIR/pkg/make_pkg.sh
+
+clean_rpm_job:
+  stage: clean-rpm
+  tags:
+    - default-rpm
+  only:
+    - master
+  script:
+    - rm -rf $CI_WORK_DIR
+
+build_deb_job:
+  stage: build-deb  
+  tags:
+    - default-deb
+  only:
+    - master
+  script:
+    - echo $PackageType
+    - mkdir -p $CI_WORK_DIR
+    - cp -r ./* $CI_WORK_DIR/
+    - bash $CI_WORK_DIR/pkg/make_pkg.sh
+
+clean_deb_job:
+  stage: clean-deb
+  tags:
+    - default-deb
+  only:
+    - master
+  script:
+    - rm -rf $CI_WORK_DIR

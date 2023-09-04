@@ -1,0 +1,268 @@
+global:
+  exec_num: 3
+  mysql:
+    host: xxx.xxx.xxx.xxx
+    port: 6379
+    user: root
+    passwd: xxxxxxxxx
+    mysqldb: mimic
+  schedule_horizon:
+    ip: xxx.xxx.xxx.xxx
+    port: 6379
+  schedule_controller:
+    ip: xxx.xxx.xxx.xxx
+    port: 6379
+  schedule_keystone:
+    ip: xxx.xxx.xxx.xxx
+    port: 6379
+schedule:
+  - name: schedule_horizon
+    enable: 1
+    bind: xxx.xxx.xxx.xxx
+    port: 6379
+    timeout: 10
+    report_interval: 2
+  - name: schedule_controller
+    enable: 1
+    bind: xxx.xxx.xxx.xxx
+    port: 6379
+    timeout: 10
+    report_interval: 2
+  - name: schedule_keystone
+    enable: 1
+    bind: xxx.xxx.xxx.xxx
+    port: 6379
+    timeout: 10
+    report_interval: 2
+proxy:
+  - name: proxy_horizon
+    enable: 1
+    bind: xxx.xxx.xxx.xxx
+    port: 6379
+    work_threads: 5
+    timeout: 25
+  - name: proxy_nova
+    enable: 1
+    bind: xxx.xxx.xxx.xxx
+    port: 6379
+    work_threads: 5
+    timeout: 20
+  - name: proxy_cinder
+    enable: 1
+    bind: xxx.xxx.xxx.xxx
+    port: 6379
+    work_threads: 5
+    timeout: 20
+  - name: proxy_neutron
+    enable: 1
+    bind: xxx.xxx.xxx.xxx
+    port: 6379
+    work_threads: 5
+    timeout: 20
+  - name: proxy_keystone
+    enable: 1
+    bind: xxx.xxx.xxx.xxx
+    port: 6379
+    work_threads: 5
+    timeout: 15
+judge:
+  - name: judge_horizon
+    enable: 1
+    bind: xxx.xxx.xxx.xxx
+    port: 6379
+    work_threads: 5
+    timeout: 20
+  - name: judge_controller
+    enable: 1
+    bind: xxx.xxx.xxx.xxx
+    port: 6379
+    work_threads: 5
+    timeout: 15
+exec-horizon:
+  - ip: xxx.xxx.xxx.xx1
+    port: 38888
+    os: Centos
+    web: nginx
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx1
+    port: 38889
+    os: Ubuntu
+    web: Apache
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx1
+    port: 38890
+    os: Opensuse
+    web: Zeus
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx2
+    port: 38888
+    os: Centos
+    web: nginx
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx2
+    port: 38889
+    os: Ubuntu
+    web: Apache
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx2
+    port: 38890
+    os: Opensuse
+    web: Zeus
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx3
+    port: 38888
+    os: Centos
+    web: nginx
+    arch: aarch64
+  - ip: xxx.xxx.xxx.xx3
+    port: 38889
+    os: Ubuntu
+    web: Apache
+    arch: aarch64
+  - ip: xxx.xxx.xxx.xx3
+    port: 38890
+    os: Opensuse
+    web: Zeus
+    arch: aarch64
+exec-controller:
+  - ip: xxx.xxx.xxx.xx1
+    port: 18774
+    os: Centos
+    web:
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx1
+    port: 28774
+    os: Opensuse
+    web:
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx1
+    port: 38774
+    os: Ubuntu
+    web:
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx2
+    port: 18774
+    os: Centos
+    web:
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx2
+    port: 28774
+    os: Opensuse
+    web:
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx2
+    port: 38774
+    os: Ubuntu
+    web:
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx3
+    port: 18774
+    os: Centos
+    web:
+    arch: aarch64
+  - ip: xxx.xxx.xxx.xx3
+    port: 28774
+    os: Opensuse
+    web:
+    arch: aarch64
+  - ip: xxx.xxx.xxx.xx3
+    port: 38774
+    os: Ubuntu
+    web:
+    arch: aarch64
+exec-keystone:
+  - ip: xxx.xxx.xxx.xx1
+    port: 15000
+    os: Centos
+    web:
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx1
+    port: 25000
+    os: Ubuntu
+    web:
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx1
+    port: 35000
+    os: Opensuse
+    web:
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx2
+    port: 15000
+    os: Centos
+    web:
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx2
+    port: 25000
+    os: Ubuntu
+    web:
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx2
+    port: 35000
+    os: Opensuse
+    web:
+    arch: x86_64
+  - ip: xxx.xxx.xxx.xx3
+    port: 15000
+    os: Centos
+    web:
+    arch: aarch64
+  - ip: xxx.xxx.xxx.xx3
+    port: 25000
+    os: Ubuntu
+    web:
+    arch: aarch64
+  - ip: xxx.xxx.xxx.xx3
+    port: 35000
+    os: Opensuse
+    web:
+    arch: aarch64
+not_support_key:
+  - id
+  - href
+  - adminPass
+  - updated
+  - total_local_gb_usage
+  - total_memory_mb_usage
+  - stop
+  - hours
+  - total_vcpus_usage
+  - _msg_id
+  - _reply_q
+  - total_hours
+  - uptime
+  - hostId
+  - url
+  - updated_at
+  - scheduled_at
+  - _context_request_id
+  - _context_timestamp
+  - _unique_id
+  - attachment_id
+  - updated_at
+  - scheduled_at
+  - nova_object.changes
+  - task_state
+  - revision_number
+  - executor_ip
+  - versioned_object.changes
+  - _context_roles
+  - allowed_address_pairs
+  - vif_details
+  - event_type
+  - tags
+  - network_metadata
+  - network_info
+  - subnets
+  - audit_ids
+  - security_groups
+  - update_time
+  - deleted_at
+  - issued_at
+  - heartbeat_timestamp
+  - data->status
+  - data->expiration_time
+  - create_time
+  - hypervisors->disk_available_least
+  - data->open_time
+  - data->sys_time
+  - data->sys_timestamp
